@@ -15,4 +15,4 @@ lazy val root = (project in file("."))
       "VERSION" -> Version.geotrellis
     )
   )
-  .enablePlugins(MdocPlugin)
+  .enablePlugins(MdocPlugin, DocusaurusPlugin)
