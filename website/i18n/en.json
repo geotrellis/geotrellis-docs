@@ -4,7 +4,12 @@
     "next": "Next",
     "previous": "Previous",
     "tagline": "A geographic data processing engine for high performance applications",
-    "docs": {},
+    "docs": {
+      "getting_started": {
+        "title": "Getting Started",
+        "sidebar_label": "Getting Started"
+      }
+    },
     "links": {},
     "categories": {
       "Getting Started": "Getting Started"
