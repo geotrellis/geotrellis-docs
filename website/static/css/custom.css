@@ -4,8 +4,24 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
- 
+
 /* your custom css */
+
+.nav-footer .sitemap {
+  margin: 0 auto 1em;
+}
+
+.nav-footer .copyright a {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-footer .copyright a:hover {
+  color: rgba(255, 255, 255, 1.0);
+}
+
+.nav-footer .copyright .separator {
+  margin: 0.25em;
+}
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }

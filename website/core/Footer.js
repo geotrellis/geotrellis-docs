@@ -34,7 +34,11 @@ class Footer extends React.Component {
                 height="58"
               />
             )}
+            GeoTrellis
           </a>
+          <div>
+
+          </div>
           <div>
             <h5>Community</h5>
             <a
@@ -53,17 +57,21 @@ class Footer extends React.Component {
               rel="noreferrer noopener">
               Gitter.im
             </a>
-            <a href={`${this.props.config.blogUrl}`}>Blog</a>
           </div>
           <div>
             <h5>More</h5>
             <a href="https://projects.eclipse.org/projects/locationtech">LocationTech</a>
-            <a href="https://azavea.com/terms-of-use/">Terms of Use</a>
-            <a href="https://azavea.com/privacy-policy/">Privacy Policy</a>
+            <a href={`${this.props.config.blogUrl}`}>Blog</a>
           </div>
         </section>
 
-        <section className="copyright">{this.props.config.copyright}</section>
+        <section className="copyright">
+          <a href="https://azavea.com/terms-of-use/">Terms of Use</a>
+          <span className="separator">&middot;</span>
+          <a href="https://azavea.com/privacy-policy/">Privacy Policy</a>
+          <span className="separator">&middot;</span>
+          {this.props.config.copyright}
+        </section>
       </footer>
     );
   }
