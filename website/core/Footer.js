@@ -37,19 +37,6 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Community</h5>
-            <a href={this.pageUrl('users.html', this.props.language)}>
-              User Showcase
-            </a>
-            <a
-              href={this.props.config.gitterUrl}
-              target="_blank"
-              rel="noreferrer noopener">
-              Gitter.im
-            </a>
-          </div>
-          <div>
-            <h5>More</h5>
-            <a href={`${this.props.config.blogUrl}`}>Blog</a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}
@@ -60,6 +47,19 @@ class Footer extends React.Component {
               aria-label="Star this project on GitHub">
               Star
             </a>
+            <a
+              href={this.props.config.gitterUrl}
+              target="_blank"
+              rel="noreferrer noopener">
+              Gitter.im
+            </a>
+            <a href={`${this.props.config.blogUrl}`}>Blog</a>
+          </div>
+          <div>
+            <h5>More</h5>
+            <a href="https://projects.eclipse.org/projects/locationtech">LocationTech</a>
+            <a href="https://azavea.com/terms-of-use/">Terms of Use</a>
+            <a href="https://azavea.com/privacy-policy/">Privacy Policy</a>
           </div>
         </section>
 

@@ -10,7 +10,10 @@
         "sidebar_label": "Getting Started"
       }
     },
-    "links": {},
+    "links": {
+      "Gitter": "Gitter",
+      "GitHub": "GitHub"
+    },
     "categories": {
       "Getting Started": "Getting Started"
     }

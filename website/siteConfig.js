@@ -16,7 +16,7 @@ const siteConfig = {
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
-  customDocsPath: "target/mdoc",
+  customDocsPath: 'target/mdoc',
 
   // Used for publishing and more
   projectName: 'geotrellis',
@@ -26,20 +26,23 @@ const siteConfig = {
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
-  headerLinks: [],
+  headerLinks: [
+    {href: 'https://gitter.im/geotrellis/geotrellis', label: 'Gitter'},
+    {href: 'https://github.com/locationtech/geotrellis', label: 'GitHub'},
+  ],
 
   // If you have users set above, you add it here:
   // users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/favicon.png',
-  footerIcon: 'img/favicon.png',
+  headerIcon: 'img/geotrellis_RGB_mark_sm.png',
+  footerIcon: 'img/geotrellis_RGB_mark_sm.png',
   favicon: 'img/favicon.png',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#407DBE',
-    secondaryColor: '#517576',
+    primaryColor: '#1c2d3f',
+    secondaryColor: '#417dbf',
   },
 
   /* Custom fonts for website */
