@@ -7,7 +7,7 @@
 
 const React = require('react');
 
-import { Container, GridBlock } from '../../core/CompLibrary.js'
+const { Container } = require('../../core/CompLibrary.js');
 
 const Button = props => (
   <div className="pluginWrapper buttonWrapper">
