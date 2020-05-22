@@ -7,6 +7,10 @@
 
 /* your custom css */
 
+.mainContainer .wrapper {
+  max-width: 737px;
+}
+
 .nav-footer .sitemap {
   margin: 0 auto 1em;
 }

@@ -7,7 +7,20 @@
 
 const React = require('react');
 
-const { Container } = require('../../core/CompLibrary.js');
+const { Container, MarkdownBlock } = require('../../core/CompLibrary.js');
+
+const indexMarkdown = `
+### Scala API Documentation
+
+The latest Scaladoc tracks the master branch on GitHub. Tagged releases are identified by their version number.
+
+- [latest](https://geotrellis.github.io/scaladocs/latest/#geotrellis.package)
+- [2.0](https://geotrellis.github.io/scaladocs/2.0/#geotrellis.package)
+
+### Contributing
+
+GeoTrellis is an open source project, so contributions of any kind are welcome and appreciated! Contributors will need to sign a CLA (Contributor’s License Agreement). These details and others relating to GeoTrellis contributions can be found [here](https://geotrellis.readthedocs.io/en/latest/CONTRIBUTING.html).
+`;
 
 const Button = props => (
   <div className="pluginWrapper buttonWrapper">
@@ -70,24 +83,10 @@ class Index extends React.Component {
     return (
       <div>
         <div className="mainContainer">
-          <Container padding={["bottom"]}>
+          <Container >
             <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
-          </Container>
-          <Container padding={["bottom"]}>
-            <p>
-              If you can’t find exactly what you’re looking for in either our Guide or API docs, feel free to join us in our <a href={this.props.config.gitterUrl}>Gitter channel</a>, where we can answer your questions live.
-            </p>
-            <Button href={docUrl('getting_started')}>Getting Started</Button>
-          </Container>
-          <Container padding={["bottom"]}>
-            <h3>Scala API Documentation</h3>
-            <p>The latest Scaladoc tracks the master branch on GitHub. Tagged releases are identified by their version number.</p>
-          </Container>
-          <Container padding={["bottom"]}>
-            <h3>Contributing</h3>
-            <p>GeoTrellis is an open source project, so contributions of any kind are welcome and appreciated! Contributors will need to sign a CLA (Contributor’s License Agreement). These details and others relating to GeoTrellis contributions can be found <a href="https://geotrellis.readthedocs.io/en/latest/CONTRIBUTING.html">here.</a></p>
-          </Container>
-          <Container padding={["bottom"]}>
+            <Button href={docUrl('getting_started')}>Get Started</Button>
+            <MarkdownBlock>{indexMarkdown}</MarkdownBlock>
           </Container>
         </div>
       </div>
