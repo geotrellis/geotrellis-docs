@@ -11,49 +11,28 @@ Starting _GeoTrellis_ `3.4.2`, _GeoTrellis_ is compatible only with the GDAL`3.1
 
 ## Installing GDAL on EMR
 
-The EMR installation conatans of the following steps:
+To properly install GDAL on EMR it is neccesary to install GDAL on all the nodes using the [EMR bootstrap script](#emr-bootsrap-script-gdal-installation-on-emr). And to make these installed GDAL dependencies
+available for the run-time shared library loader (to set a proper `LD_LIBRARY_PATH` environment variable).
+
+If you're a Scala user and use [SBT](https://www.scala-sbt.org/) for the development work, there a [GeoTrellis Spark Job](https://github.com/geotrellis/geotrellis-spark-job.g8) template project that contains a template for the GeoTrellis project and configures the 
+[SBT Lighter plugin](#configuration-for-sbt-lighter-plugin) to install GDAL.
+
+To summarize, the whole process can be represented the following way:
 
 1. Install _GDAL_
-2. Set Spark `LD_LIBRARY_PATH`. In this case `GeoTrellis GDAL` would be able to use the installed `GDAL`.
-
-You can also check out [GeoTrellis Spark template](https://github.com/geotrellis/geotrellis-spark-job.g8) that is properly configured for the EMR jobs.
+2. Set Spark `LD_LIBRARY_PATH`. In this case `GeoTrellis GDAL` would be able to use the installed `GDAL`
 
 ### EMR Bootsrap script (GDAL installation on EMR)
 
-The EMR bootstrap script with all appropriate settings is located under the following S3 URI: [s3://geotrellis-test/emr-gdal/bootstrap.sh](s3://geotrellis-test/emr-gdal/bootstrap.sh).
+The EMR bootstrap script for GeoTrellis + GDAL can be downloaded at: [s3://geotrellis-test/emr-gdal/bootstrap.sh](s3://geotrellis-test/emr-gdal/bootstrap.sh).
+
 It installs GDAL 3.1.2 (by default) through conda and sets all appropriate env variables in case 
-it would be required to log in onto nodes and experiment with the `spark-shell`.
+it would be required to log in on the cluster nodes and experiment with the `spark-shell`.
 
-```bash
-#!/bin/bash
+#### spark-defaults settings
 
-set -ex
-
-# The default GDAL version would be 3.1.2
-GDAL_VERSION=$1
-GDAL_VERSION=${GDAL_VERSION:="3.1.2"}
-
-# Install Conda
-wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
-sudo sh Miniconda-latest-Linux-x86_64.sh -b -p /usr/local/miniconda
-
-source ~/.bashrc
-export PATH=/usr/local/miniconda/bin:$PATH
-
-# Install GDAL
-conda config --add channels conda-forge
-sudo pip3 install tqdm && \
-sudo /usr/local/miniconda/bin/conda install python=3.6 -y && \
-sudo /usr/local/miniconda/bin/conda install -c anaconda hdf5 -y && \
-sudo /usr/local/miniconda/bin/conda install -c conda-forge libnetcdf gdal=${GDAL_VERSION} -y
-
-echo "export PATH=/usr/local/miniconda/bin:$PATH" >> ~/.bashrc
-echo "export LD_LIBRARY_PATH=/usr/local/miniconda/lib/:/usr/local/lib:/usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native:/docker/usr/lib/hadoop/lib/native:/docker/usr/lib/hadoop-lzo/lib/native:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib" >> ~/.bashrc
-```
-
-#### Spark settings (optional)
-
-Set `LD_LIBRARY_PATH` for spark, through the `spark-defaults` settings:
+To make GDAL bindings work it is neccesary to pass the `LD_LIBRARY_PATH` variable into the Spark task.
+To set `LD_LIBRARY_PATH` for spark, through the `spark-defaults` settings it is possible to do the following:
 
 ```json
 {
@@ -65,9 +44,13 @@ Set `LD_LIBRARY_PATH` for spark, through the `spark-defaults` settings:
 }
 ```
 
-These parameters (above) can be also set / overrided via the `spark-submit --conf` settings.
+These parameters above can be also set / overrided via the `spark-submit --conf` settings.
 
-### SBT Lighter plugin configuration example
+### Configuration for SBT Lighter Plugin
+
+Before looking into this section, you may be interested in the [GeoTrellis Spark Job](https://github.com/geotrellis/geotrellis-spark-job.g8) template project as well.
+
+The SBT Lighter Plugin configuration example:
 
 ```scala
 /** addSbtPlugin("net.pishen" % "sbt-lighter" % "1.2.0") */
