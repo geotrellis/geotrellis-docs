@@ -7,7 +7,7 @@ sidebar_label: GeoTrellis EMR deployment with GDAL
 GeoTrellis can be used with _EMR 6_. However, if there is a need in GDAL bindings usage there can be some certain complexities.
 This section describes the entire _EMR 6_ deployment and GDAL installation in a way that would satisfy GeoTrellis GDAL requirements.
 
-Starting _GeoTrellis_ `3.5`, _GeoTrellis_ is compatible only with the GDAL`3.1 +` versions.
+Starting _GeoTrellis_ `3.4.2`, _GeoTrellis_ is compatible only with the GDAL`3.1 +` versions.
 
 ## Installing GDAL on EMR
 
