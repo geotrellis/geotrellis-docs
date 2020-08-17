@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "A geographic data processing engine for high performance applications",
     "docs": {
+      "emr_deployment": {
+        "title": "GeoTrellis EMR deployment with GDAL",
+        "sidebar_label": "GeoTrellis EMR deployment with GDAL"
+      },
       "getting_started": {
         "title": "Getting Started",
         "sidebar_label": "Getting Started"
@@ -15,7 +19,8 @@
       "GitHub": "GitHub"
     },
     "categories": {
-      "Getting Started": "Getting Started"
+      "Getting Started": "Getting Started",
+      "GeoTrellis EMR deployment with GDAL": "GeoTrellis EMR deployment with GDAL"
     }
   },
   "pages-strings": {

@@ -1,6 +1,7 @@
 {
   "docs": {
-    "Getting Started": ["getting_started"]
+    "Getting Started": ["getting_started"],
+    "GeoTrellis EMR deployment with GDAL": ["emr_deployment"]
   },
   "docs-other": {}
 }

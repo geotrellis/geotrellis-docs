@@ -1,5 +1,5 @@
 ---
-id: emr
+id: emr_deployment
 title: GeoTrellis EMR deployment with GDAL
 sidebar_label: GeoTrellis EMR deployment with GDAL
 ---
