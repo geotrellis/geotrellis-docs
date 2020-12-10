@@ -1,6 +1,8 @@
 # GeoTrellis Documentation
 
-This repo is the home of the GeoTrellis documentation. It does not yet have a home on the web.
+This repo is the home of the GeoTrellis documentation. It is a test bed for developing GT docs with mdoc. 
+
+**As of https://github.com/locationtech/geotrellis/pull/3317 this repo has been migrated and integrated into locationtech/geotrellis.**
 
 ## Editing the docs
 
